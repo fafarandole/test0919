@@ -38,8 +38,6 @@ def initialize_session_state() -> None:
         st.session_state.last_question_word = None
     if 'last_question_meaning' not in st.session_state:
         st.session_state.last_question_meaning = None
-    if 'last_user_input' not in st.session_state:
-        st.session_state.last_user_input = ''
 
 
 # 기본 데이터셋 로더
@@ -210,7 +208,6 @@ def render_quiz_ui() -> None:
                 st.session_state.last_question_index = display_index
                 st.session_state.last_question_word = current_item['word']
                 st.session_state.last_question_meaning = current_item['meaning']
-                st.session_state.last_user_input = st.session_state.user_input
     else:
         # 채점 후: 임의 정답 처리 / 다음 단어 버튼 표시
         col_manual, col_next, _ = st.columns(3)
@@ -228,9 +225,6 @@ def render_quiz_ui() -> None:
             st.success('정답입니다!')
         else:
             st.error(f"오답입니다. 정답: {display_meaning}")
-        # 내가 쓴 답과 모범 답안을 함께 표시
-        st.info(f"내 답: {st.session_state.last_user_input}")
-        st.caption(f"모범 답안: {display_meaning}")
         # 피드백 아래에서도 조작 가능: 임의 정답 처리 / 다음 문제로
         fb_col1, fb_col2 = st.columns(2)
         with fb_col1:
@@ -409,5 +403,5 @@ def main() -> None:
         render_stats_and_filters()
 
 
-if __name__ == '__main__':
-    main()
+if __name__ == '__main__' :
+main()
