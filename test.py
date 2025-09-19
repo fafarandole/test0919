@@ -14,6 +14,7 @@ def main() :
     # 대시보드 제목을 표시합니다.
     st.title('행복한 금요일 입니다~')
     st.title('Hello')
+    st.title('하안녕')
 
 
 
